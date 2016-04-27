@@ -6,9 +6,12 @@ type LoginHandler struct {
 
 }
 
-func(h *LoginHandler) Setup() {
+func(h *LoginHandler) Init() {
 	println("login handler inited")
 }
+func(h *LoginHandler) AfterInit() {}
+func(h *LoginHandler) BeforeShutdown() {}
+func(h *LoginHandler) Shutdown() {}
 
 func(h *LoginHandler) Login(session *starx.Session, data []byte) error {
 	println(string(data))

@@ -6,9 +6,10 @@ type ChatHandler struct {
 
 }
 
-func (c *ChatHandler) Setup() {
-
-}
+func (c *ChatHandler) Init() {}
+func (c *ChatHandler) AfterInit() {}
+func (c *ChatHandler) BeforeShutdown() {}
+func (c *ChatHandler) Shutdown() {}
 
 func (c *ChatHandler) Chating(session *starx.Session, data []byte) error {
 	println(string(data))
