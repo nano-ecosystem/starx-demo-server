@@ -4,15 +4,18 @@ import (
 	"github.com/chrislonng/starx"
 	"starx-demo-server/servers/gate"
 	"starx-demo-server/servers/chat"
+	"os"
 )
 
 func main() {
 	starx.Set("gate", func(){
-		starx.Handler(new(gate.LoginHandler))
+		starx.Register(new(gate.LoginHandler))
 	});
 	starx.Set("chat", func(){
-		starx.Handler(new(chat.ChatHandler))
-		starx.Remote(new(chat.ChatRemote))
+		starx.Register(new(chat.ChatHandler))
+		starx.Register(new(chat.ChatRemote))
 	});
-	starx.Start()
+
+	starx.SetServerID(os.Args[1])
+	starx.Run()
 }

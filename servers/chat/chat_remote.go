@@ -9,6 +9,6 @@ func (c *ChatRemote) AfterInit() {}
 func (c *ChatRemote) BeforeShutdown() {}
 func (c *ChatRemote) Shutdown() {}
 
-func (c *ChatRemote) GetUserList() ([]byte, error) {
-	return []byte(`user list`), nil
+func (c *ChatRemote) GetUserList() (string, error) {
+	return `user list`, nil
 }

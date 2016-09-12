@@ -1,24 +1,21 @@
 package chat
 
-import "github.com/chrislonng/starx"
+import (
+	"github.com/chrislonng/starx/component"
+	"github.com/chrislonng/starx/session"
+)
 
 type ChatHandler struct {
-
+	component.Base
 }
 
-func (c *ChatHandler) Init() {}
-func (c *ChatHandler) AfterInit() {}
-func (c *ChatHandler) BeforeShutdown() {}
-func (c *ChatHandler) Shutdown() {}
-
-func (c *ChatHandler) Chating(session *starx.Session, data []byte) error {
+func (c *ChatHandler) Chating(session *session.Session, data []byte) error {
 	println(string(data))
 	session.Response([]byte(`get user chating message`))
 	return nil
 }
 
-func (c *ChatHandler) UserIsInputing(session *starx.Session, data []byte) error {
+func (c *ChatHandler) UserIsInputing(session *session.Session, data []byte) error {
 	println(string(data))
 	return nil
 }
-
